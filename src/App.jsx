@@ -31,20 +31,18 @@ function App() {
       <h1>Meal Prep Helper</h1>
      </div>
 
-{recipe.map((item) =>(
-  <div className='box'>
-    <div class="card">
-      <div class="category">{recipe.strCategory}</div>
-       <div class="thumbnail">
-           {recipe.strMealThumb}
-          <div class="author">{recipe.Instructions}</div>
-       </div>
-
-      
+{recipe.map((item) =>{
+  return (
+    <div className="card">
+    <img src={strMealThumb} alt={strMeal} style={"width:100%"}/>
+    <div className="container">
+      <h4><b>{strMeal}</b></h4>
+      <a href={'http://www.themealdb.com/meal/ + idMeal'}>{Ingredients & Instructions}</a>
     </div>
-
   </div>
-))}
+
+  );
+})}
 
 </>
   )
