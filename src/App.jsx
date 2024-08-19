@@ -5,7 +5,7 @@ import SearchBar from './components/SearchBar';
 import Cards from './components/Cards';
 import ReactDOM from 'react-dom';
 
-const resUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
+const resUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 function App() {
 
@@ -26,11 +26,27 @@ function App() {
  //}
       
   return (
+    <>
     <div>
       <h1>Meal Prep Helper</h1>
+     </div>
 
-    
+{recipe.map((item) =>(
+  <div className='box'>
+    <div class="card">
+      <div class="category">{recipe.strCategory}</div>
+       <div class="thumbnail">
+           {recipe.strMealThumb}
+          <div class="author">{recipe.Instructions}</div>
+       </div>
+
+      
     </div>
+
+  </div>
+))}
+
+</>
   )
 }
 
