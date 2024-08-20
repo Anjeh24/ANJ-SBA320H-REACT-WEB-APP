@@ -6,7 +6,7 @@ import Cards from './components/Cards';
 import ReactDOM from 'react-dom';
 
 const resUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-
+const fetchedRes = data;
 function App() {
 
  const [recipe, setRecipe] = useState([])//usestate as empty array to hold data
@@ -30,19 +30,21 @@ function App() {
     <div>
       <h1>Meal Prep Helper</h1>
      </div>
-
-{recipe.map((item) =>{
-  return (
+<input onChange={data} label="Search recipe"/> //attempting to add search bar that would return output
+{recipe.map((item, index) =>(
+ <div key={index}>
     <div className="card">
-    <img src={strMealThumb} alt={strMeal} style={"width:100%"}/>
+    <img src={item.strMealThumb} alt={strMeal} style={"width:100%"}/>
     <div className="container">
-      <h4><b>{strMeal}</b></h4>
+      <h4><b>{item.strMeal}</b></h4>
       <a href={'http://www.themealdb.com/meal/ + idMeal'}>{Ingredients & Instructions}</a>
     </div>
   </div>
+  </div>
+)
 
-  );
-})}
+ 
+)}
 
 </>
   )
