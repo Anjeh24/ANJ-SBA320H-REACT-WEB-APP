@@ -5,48 +5,44 @@ import SearchBar from './components/SearchBar';
 import Cards from './components/Cards';
 import ReactDOM from 'react-dom';
 
-const resUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-const fetchedRes = data;
-function App() {
 
- const [recipe, setRecipe] = useState([])//usestate as empty array to hold data
- useEffect(() => {           //fetching API using useEffect hook
-  fetch(resUrl)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
+function App() {
+  const [recipe, setRecipe] = useState([]);
+
+ useEffect(() => {
+ async function getRecipe() {
+  try {
+    const res = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=');
+    const data = await res.json();
     console.log(data);
-    setRecipe(data); //credits, freecodecamp
-  })
- }, []); //the empty array dependence would enable it to run once instead of multiple times.
- //const theSubmission = (evt) => {
- // evt.preventDefault();
-  //setRecipe(data) //trying to get the new state
- //}
-      
+    
+    setRecipe(data) //setting the new values/state of recipe to objects
+  }catch (error) {
+
+  }
+  
+ }
+getRecipe()
+
+}, []);
+
   return (
-    <>
+    
     <div>
       <h1>Meal Prep Helper</h1>
-     </div>
-<input onChange={data} label="Search recipe"/> //attempting to add search bar that would return output
-{recipe.map((item, index) =>(
- <div key={index}>
-    <div className="card">
-    <img src={item.strMealThumb} alt={strMeal} style={"width:100%"}/>
-    <div className="container">
-      <h4><b>{item.strMeal}</b></h4>
-      <a href={'http://www.themealdb.com/meal/ + idMeal'}>{Ingredients & Instructions}</a>
+    
+   {recipe.map((item, index) =>(
+    <div className="card-items" key={index}>
+        <img src={item.strMealThumb} alt="food" style="width:100%"/>
+      <div className="container">
+        <h4><b>{item.strMeal}</b></h4>
+        <a href={'https://www.themealdb.com/meal/' + item.idMeal} target='_blank'>Recipe & Instructions</a>
+      </div>
     </div>
+    ))}
   </div>
-  </div>
-)
-
- 
-)}
-
-</>
+   
+  
   )
 }
 
