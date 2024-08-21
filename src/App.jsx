@@ -16,9 +16,9 @@ function App() {
     const data = await res.json();
     console.log(data);
     
-    setRecipe(data) //setting the new values/state of recipe to objects
+    setRecipe(data.meals || []); //setting the new values/state of recipe to objects
   }catch (error) {
-
+    console.error('could not fetch recipes', error);
   }
   
  }
@@ -31,12 +31,12 @@ getRecipe()
     <div>
       <h1>Meal Prep Helper</h1>
     
-   {recipe.map((item, index) =>(
-    <div className="card-items" key={index}>
-        <img src={item.strMealThumb} alt="food" style="width:100%"/>
+   {recipe.map((item, index) => (
+    <div className="card_items" key={index}>
+        <img src={item.strMealThumb} alt="food" style={{width:'100%'}}/>
       <div className="container">
         <h4><b>{item.strMeal}</b></h4>
-        <a href={'https://www.themealdb.com/meal/' + item.idMeal} target='_blank'>Recipe & Instructions</a>
+        <a href={'https://www.themealdb.com/meal/' + item.idMeal} target='_blank' rel="noopener noreferrer">Get Recipe & Instructions</a>
       </div>
     </div>
     ))}
