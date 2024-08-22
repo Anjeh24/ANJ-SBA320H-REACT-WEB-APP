@@ -14,6 +14,8 @@ function App() {
       <div>
         <SearchBar/> {/**impoorted searchBar.jsx to be rendered on app */}
      
+        <h6>Made with &#x2764;&#xfe0f; by Anjeh Mbah</h6>
+     
       </div>
      
     </>

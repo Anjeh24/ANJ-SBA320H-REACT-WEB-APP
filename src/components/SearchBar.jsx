@@ -48,6 +48,7 @@ function SearchBar() {
           <a href={'https://www.themealdb.com/meal/' + item.idMeal} target='_blank' rel="noopener noreferrer">Get Recipe & Instructions</a>
         </div>
       </div>
+      
       </div>
       
       ))}
