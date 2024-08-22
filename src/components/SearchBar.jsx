@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from "react";
 
 function SearchBar() {
-
+ 
   const [query, setQuery] = useState("");
   const[recipe, setRecipe] = useState([]);
   
@@ -23,18 +23,19 @@ function SearchBar() {
           }
           
          }
-    getRecipe();
-  }, []);
+    getRecipe(query);
+  }, [query]);
   
   
     return (
       <div>
-      <h2>Search Recipe</h2>
+        <h1>MEAL PREP CHRONO</h1>
+      <h2>Search Recipes</h2>
   
-         <div className="search-btn">
+         <div className="search_ar">
          
           <input type="text" placeholder="Find recipe" onChange={evt => setQuery(evt.target.value)}/>
-  
+           
          </div>
   
          {recipe.map((item, index) => (
@@ -47,6 +48,7 @@ function SearchBar() {
         </div>
       </div>
       </div>
+      
       ))}
   
       </div>
