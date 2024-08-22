@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <div>
-        <SearchBar/>
+        <SearchBar/> {/**impoorted searchBar.jsx to be rendered on app */}
      
       </div>
      
