@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import "./App.CSS";
+import "./App.css";
 import SearchBar from './components/SearchBar';
 
 import ReactDOM from 'react-dom';
